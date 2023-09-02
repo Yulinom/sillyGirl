@@ -22,7 +22,7 @@ uids:wxpusher的参数，当一个微信关注了一个wxpusher的推送主题�
 打开链接：https://wxpusher.zjiecode.com/admin/main/topics/list点击 用户管理->用户列表 能看到uids，用户uids可以单个推送消息给用户
 '''
 czgmconfig = [
-    {'name': '账号1', 'ck': 'o-0fIv5OxxxxL9jpvo', "uids": 'UID_11xxxxxxQ'},
+    {'name': '账号1', 'ck': 'o-0fIv5OxxxxL9jpvo', "uids": 'UID_11ZH0PXXGpJCM5bca1cUeq12lncQ'},
     {'name': '账号2', 'ck': 'xxxx', "uids": 'xxx'},
 ]
 #########################################################################
@@ -79,18 +79,46 @@ xyyconfig = [
 ]
 #########################################################################
 '''
+xkybconfig是星空和元宝的共用参数配置列表，因为是一个平台，所以参数一样
+活动入口,微信打开
+星空阅读阅读：http://mr1692169663544.uznmvev.cn/ox/index.html?mid=XG7QUVEEH
+元宝阅读：http://mr1693542990524.obmxvbv.cn/coin/index.html?mid=RG5RC7LDU
+打开活动入口，抓包的http://u.cocozx.cn/api/ox/info接口的请求体中的un和token参数
+单账户填写样式(这里只是样式，不要填这里)
+xyyconfig = [
+    {'name': 'xxx', 'un': 'xxx', 'token': 'xxx',"uids": 'xxx'},
+]
+多账户填写样式，几个账号填几个，不要多填。(这里只是样式，不要填这里)
+xkybconfig = [
+    {'name': 'xxx', 'un': 'xxx', 'token': 'xxx',"uids": 'xxx'},
+    {'name': 'xxx', 'un': 'xxx', 'token': 'xxx',"uids": 'xxx'},
+    {'name': 'xxx', 'un': 'xxx', 'token': 'xxx',"uids": 'xxx'},
+]
+参数解释
+name:账号名，你可以随便填，用来推送时分辨哪一个账号
+ck:账号的ck,抓包的任意接口headers中的Authorization参数
+uids:wxpusher的参数，当一个微信关注了一个wxpusher的推送主题后，会在主题的关注列表中显示
+打开链接：https://wxpusher.zjiecode.com/admin/main/topics/list点击 用户管理->用户列表 能看到uids，用过uids可以单个推送消息给用户
+'''
+xkybconfig = [
+    {'name': 'xxx', 'un': 'xxx', 'token': 'xxx',"uids": 'xxx'},
+    {'name': 'xxx', 'un': 'xxx', 'token': 'xxx',"uids": 'xxx'},
+    {'name': 'xxx', 'un': 'xxx', 'token': 'xxx',"uids": 'xxx'},
+]
+#########################################################################
+'''
 公共推送参数
 参数解释
 key:回调服务器的key，通过浏览器打开链接获取:http://175.24.153.42:8882/getkey
 多用户可以只使用一个key,key永不过期。为了防止恶意调用key接口，限制每个ip每天只能获取一个key。
 appToken:wxpusher的参数，在你创建应用的过程中，你应该已经看到appToken，如果没有保存，可以通过下面的方式重制它。
 打开链接：https://wxpusher.zjiecode.com/admin/main/topics/list点击 应用管理->appToken->重置appToken
-topicIds:wxpusher的参数
+topicIds:wxpusher的参数,多对多推送时要设置 topicIds = None，群推时填主题的topicIds
 打开链接：https://wxpusher.zjiecode.com/admin/main/topics/list点击 主题管理能够看到
 '''
-key = '642ae5xxxxxxxd2334c'
-appToken = 'AT_r1vxxxxxxxxYg'
-topicIds = 4781
+key = 'xxxx'
+appToken = 'xxxx'
+topicIds = None
 #########################################################################
 '''
 其他参数
@@ -98,3 +126,5 @@ topicIds = 4781
 printf:日志打印参数，0是不打印调试日志，1是打印调试日志
 '''
 printf = 0
+
+#多对多推送时每个用户都要关注这个推送应用，注意wxpusher的应用和主题是有区别的，设置”topicIds = None“，才能单推
