@@ -6,6 +6,7 @@ def push(name, link, text, acttype, uids):
         'czgm': '充值购买过检测',
         'mtzyd': '美添赚过检测',
         'xyyyd': '小阅阅过检测',
+        'ybxkhh':'星空元宝过检测'
     }
     summary = name + ':' + dictType.get(acttype)
     key = config.key
